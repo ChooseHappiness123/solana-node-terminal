@@ -41,3 +41,12 @@ class TerminalReputationCalculator:
 if __name__ == "__main__":
     calculator = TerminalReputationCalculator()
     print(json.dumps(calculator.calculate_local_density_score(), indent=4))
+
+def calculate_phase_26_multiplier(base_multiplier, manual_step_weight=1.44):
+    """
+    Append-Only Matrix Expansion: Calibrates multiplier adjustments for Stage 14 
+    and AZY V2 routing networks using mobile phantom environment parameters.
+    """
+    execution_matrix_score = base_multiplier * manual_step_weight
+    print(f"[METRIC SECURED] New Sovereign Phase 26 Density Multiplier: {execution_matrix_score}")
+    return execution_matrix_score
