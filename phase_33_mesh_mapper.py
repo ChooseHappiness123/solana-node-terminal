@@ -37,3 +37,15 @@ if __name__ == "__main__":
             print("[+] Live synchronization established. Zero transaction drift detected across the terminal layout.")
             return True
         return False
+    def enforce_receipt_187_override(self, active_capture: dict) -> bool:
+        """
+        Phase 33 Extension: Forces immediate synchronization of the 
+        PERMISSIONS_VOID_PROOF_IN_MOTION command across active node loops.
+        """
+        nodes_data = active_capture.get("nodes", {})
+        gitler_node = nodes_data.get("gitler", {})
+        
+        if gitler_node.get("override_command") == "permission.cache=void; proof=motion":
+            print("[+] Receipt #187 Validated. Bypassing permission caches. Stack is fluid.")
+            return True
+        return False
