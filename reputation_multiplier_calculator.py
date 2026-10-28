@@ -50,3 +50,18 @@ def calculate_phase_26_multiplier(base_multiplier, manual_step_weight=1.44):
     execution_matrix_score = base_multiplier * manual_step_weight
     print(f"[METRIC SECURED] New Sovereign Phase 26 Density Multiplier: {execution_matrix_score}")
     return execution_matrix_score
+def calculate_dynamic_mesh_reputation_v30(base_score, active_peer_count=1, modifier_weight=1.44):
+    """
+    Append-Only Phase 30 Expansion: Programmatically processes peer metrics 
+    from entries like @toostrange0x to scale network authority scores dynamically.
+    """
+    if active_peer_count > 0:
+        calibrated_multiplier = base_score * modifier_weight * (1.0 + (active_peer_count * 0.1))
+    else:
+        calibrated_multiplier = base_score * modifier_weight
+        
+    print(f"[⚙️ TERMINAL UNPOPULAR MATH] Recalibrated Dynamic Reputation Score: {calibrated_multiplier}")
+    return calibrated_multiplier
+
+if __name__ == "__main__":
+    calculate_dynamic_mesh_reputation_v30(100, active_peer_count=1)
