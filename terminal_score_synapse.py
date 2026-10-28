@@ -10,7 +10,7 @@ class TerminalScoreSynapse:
     def export_attestation_packet(self, calculated_score: float) -> dict:
         """
         Phase 31 Synapse Core: Packages calibrated terminal velocity scores 
-        into encrypted metadata blocks ready for cross-repository injection.
+        into verified metadata blocks ready for cross-repository injection.
         """
         attestation_block = {
             "synapse_status": "ATTESTATION_PACKET_SIGNED",
