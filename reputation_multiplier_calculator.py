@@ -87,3 +87,16 @@ def calibrate_trix_multiplier_velocity(self):
         "pipeline_parity_lock": "PHASE_34_ZAGGING_ACTIVE"
     }
     return multiplier_calibration
+def enforce_work_moves_constraint(self):
+    """
+    Tactical Weighting Gate: Overrides standard platform leaderboard points calculation.
+    Locks multipliers exclusively onto raw local executed code moves and confirmed transfer traces.
+    """
+    constraint_parameters = {
+        "rule_id": "points_speak_lt_work_moves",
+        "board_reference_id": 161,
+        "transfer_floor_sol": 0.0011,
+        "ignore_speculative_leaderboards": True,
+        "system_parity_lock": "PHASE_34_ZAGGING_ACTIVE"
+    }
+    return constraint_parameters
