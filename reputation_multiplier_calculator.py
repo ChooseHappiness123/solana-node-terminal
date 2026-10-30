@@ -116,3 +116,21 @@ def evaluate_phase_35_leaderboard_attestation(self, scoring_matrix: dict) -> dic
         scoring_matrix["gate_seal"] = "TRACKING_ACTIVE"
         
     return scoring_matrix
+
+def process_phase_35_ecosystem_multiplier(self, score_matrix: dict) -> dict:
+    """
+    PHASE_35_ZAGGING_ACTIVE: Injects dynamic reputation weight multipliers when 
+    the active ingestion layers register valid Pond0x or TRiX tracking hooks.
+    """
+    base_multiplier = 1.44
+    is_high_priority = score_matrix.get("telemetry", {}).get("high_priority_ecosystem", False)
+    
+    if is_high_priority:
+        # Boost velocity calculations directly based on verified cross-repo activity
+        score_matrix["reputation_multiplier"] = round(base_multiplier * 2.0, 2)
+        score_matrix["multiplier_status"] = "ALPHA_LEVERAGE_ENGAGED"
+    else:
+        score_matrix["reputation_multiplier"] = base_multiplier
+        score_matrix["multiplier_status"] = "BASE_VELOCITY_FLOOR"
+        
+    return score_matrix
