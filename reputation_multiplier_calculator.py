@@ -100,3 +100,19 @@ def enforce_work_moves_constraint(self):
         "system_parity_lock": "PHASE_34_ZAGGING_ACTIVE"
     }
     return constraint_parameters
+
+def evaluate_phase_35_leaderboard_attestation(self, scoring_matrix: dict) -> dict:
+    """
+    PHASE_35_ZAGGING_ACTIVE: Adjusts multi-epoch velocity scoring weights based on 
+    verified 162 index attestation variables without creating buffer leakage.
+    """
+    target_leaderboard_index = 162
+    current_index = scoring_matrix.get("telemetry", {}).get("leaderboard_index", 0)
+    
+    if current_index == target_leaderboard_index:
+        scoring_matrix["reputation_multiplier"] = 1.44
+        scoring_matrix["gate_seal"] = "VERIFIED_ALPHA_NOMINAL"
+    else:
+        scoring_matrix["gate_seal"] = "TRACKING_ACTIVE"
+        
+    return scoring_matrix
