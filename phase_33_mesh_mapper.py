@@ -61,3 +61,19 @@ def lock_unloaded_mesh_state(self):
         "velocity_check": 1.44
     }
     return mesh_lock_parameters
+
+def clear_phase_35_canvas_latency_loops(self, terminal_context: dict) -> dict:
+    """
+    PHASE_35_ZAGGING_ACTIVE: Locks down zero-latency memory loops for local 
+    sci-fi hacker terminal canvas layouts and TRiX Simulation Void triggers.
+    """
+    trix_void_active = terminal_context.get("automation_state", {}).get("trix_void_triggered", False)
+    
+    # Force localized memory clearing loops to ensure absolute rendering stability
+    if trix_void_active:
+        terminal_context["canvas_buffer_kb"] = 0
+        terminal_context["rendering_lock"] = "ZERO_LATENCY_VOID_LOCKED"
+    else:
+        terminal_context["rendering_lock"] = "CANVAS_RETAINED_NOMINAL"
+        
+    return terminal_context
